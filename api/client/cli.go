@@ -20,6 +20,7 @@ import (
 
 // DockerCli represents the docker command line client.
 // Instances of the client can be returned from NewDockerCli.
+//client 结构
 type DockerCli struct {
 	// initializing closure
 	init func() error
@@ -85,6 +86,7 @@ func (cli *DockerCli) PsFormat() string {
 	return cli.configFile.PsFormat
 }
 
+//docker client 创建函数
 // NewDockerCli returns a DockerCli instance with IO output and error streams set by in, out and err.
 // The key file, protocol (i.e. unix) and address are passed in as strings, along with the tls.Config. If the tls.Config
 // is set the client scheme will be set to https.
@@ -133,7 +135,7 @@ func NewDockerCli(in io.ReadCloser, out, err io.Writer, clientFlags *cli.ClientF
 		}
 
 		if clientFlags.Common.TLSOptions != nil {
-			cli.scheme = "https"
+			cli.scheme = "https" //启用HTTPS
 			var e error
 			cli.tlsConfig, e = tlsconfig.Client(*clientFlags.Common.TLSOptions)
 			if e != nil {
