@@ -4,6 +4,8 @@ PartOf=docker.service
 
 [Socket]
 ListenStream=/var/run/docker.sock
+#CVE-2014-3499 docker.socket world accessible
+#修复时，增加了下面三行 限制了管理套接字的权限 从而达到不是全局可读可写
 SocketMode=0660
 SocketUser=root
 SocketGroup=docker
