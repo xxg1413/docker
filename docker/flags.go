@@ -1,3 +1,5 @@
+//对客户端的命令进行处理 包括初始化
+
 package main
 
 import (

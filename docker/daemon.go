@@ -1,4 +1,6 @@
 // +build daemon
+// daemon进程 接受client命令
+//
 
 package main
 

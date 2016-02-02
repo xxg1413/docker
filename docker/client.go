@@ -1,3 +1,5 @@
+//client初始化
+
 package main
 
 import (

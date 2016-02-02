@@ -1,3 +1,5 @@
+//docker main函数
+
 package main
 
 import (
@@ -14,7 +16,9 @@ import (
 	"github.com/docker/docker/utils"
 )
 
+//main函数
 func main() {
+	//二进制文件初始化  reexec/reexec.go 如果已经初始化则退出
 	if reexec.Init() {
 		return
 	}
@@ -43,6 +47,7 @@ func main() {
 		fmt.Fprintf(os.Stdout, "%s\n", help)
 	}
 
+	//参数解析
 	flag.Parse()
 
 	if *flVersion {
@@ -59,6 +64,8 @@ func main() {
 
 	// TODO: remove once `-d` is retired
 	handleGlobalDaemonFlag()
+
+	//创建客户端
 	clientCli := client.NewDockerCli(stdin, stdout, stderr, clientFlags)
 
 	c := cli.New(clientCli, daemonCli)

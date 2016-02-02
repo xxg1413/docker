@@ -1,3 +1,5 @@
+//daemon配置信息设置
+
 package daemon
 
 import (
@@ -11,27 +13,35 @@ const (
 	disableNetworkBridge = "none"
 )
 
+//可配置字段
 // CommonConfig defines the configuration of a docker daemon which are
 // common across platforms.
 type CommonConfig struct {
-	AutoRestart    bool
-	Bridge         bridgeConfig // Bridge holds bridge network specific configuration.
-	Context        map[string][]string
-	DisableBridge  bool
-	DNS            []string
-	DNSOptions     []string
-	DNSSearch      []string
-	ExecDriver     string
-	ExecOptions    []string
-	ExecRoot       string
-	GraphDriver    string
-	GraphOptions   []string
-	Labels         []string
-	LogConfig      runconfig.LogConfig
-	Mtu            int
-	Pidfile        string
-	RemappedRoot   string
-	Root           string
+	AutoRestart bool
+
+	//网桥配置
+	Bridge bridgeConfig // Bridge holds bridge network specific configuration.
+
+	Context       map[string][]string
+	DisableBridge bool
+	//DNS设置
+	DNS        []string
+	DNSOptions []string
+	DNSSearch  []string
+
+	ExecDriver   string
+	ExecOptions  []string
+	ExecRoot     string
+	GraphDriver  string
+	GraphOptions []string
+	Labels       []string
+	LogConfig    runconfig.LogConfig
+	Mtu          int
+	Pidfile      string
+	RemappedRoot string
+	//
+	Root string
+
 	TrustKeyPath   string
 	DefaultNetwork string
 

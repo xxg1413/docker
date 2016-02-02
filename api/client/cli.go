@@ -1,3 +1,5 @@
+//定义client的结构
+
 package client
 
 import (
